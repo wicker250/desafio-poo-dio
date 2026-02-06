@@ -9,9 +9,14 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
-*.iws
+.idea/
 *.iml
+*.iws
 *.ipr
+### Maven ###
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
 
 ### Eclipse ###
 .apt_generated
