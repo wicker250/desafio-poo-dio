@@ -1,34 +1,23 @@
 package org.example.domain;
 
-public class Course
+public class Course extends Content
 {
-   private String title ;
-    private String description;
+
     int workload;
 
     public Course() {
     }
 
-    public Course(String title, String description, int workload) {
-        this.title = title;
-        this.description = description;
+    public Course( int workload) {
+
         this.workload = workload;
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    @Override
+    public double calculateExp() {
+        return EXP_STANDARD * workload;
     }
 
     public int getWorkload() {
@@ -42,9 +31,9 @@ public class Course
     @Override
     public String toString() {
         return "Course{" +
-                "description='" + description + '\'' +
+                "description='" + getDescription() + '\'' +
                 ", workload=" + workload +
-                ", title='" + title + '\'' +
+                ", title='" + getTitle() + '\'' +
                 '}';
     }
 }

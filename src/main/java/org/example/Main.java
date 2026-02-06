@@ -1,7 +1,6 @@
 package org.example;
 
-import org.example.domain.Course;
-import org.example.domain.Mentoring;
+import org.example.domain.*;
 
 import java.time.LocalDate;
 
@@ -30,5 +29,54 @@ public class Main {
         System.out.println(mentoring1);
         System.out.println(course1);
         System.out.println(course2);
+
+        System.out.println("------------------------- ");
+
+        Content content = new Course();
+        content =  course1;
+        System.out.println(content);
+        course1.setDescription("Curso de java/SpringBoot");
+        System.out.println(content);
+        System.out.println("------------------------- ");
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setName("Bootcamp Java Developer");
+        bootcamp.setDescription("Bootcamp completo de java");
+
+        bootcamp.getContents().add(course1);
+        bootcamp.getContents().add(course2);
+        bootcamp.getContents().add(mentoring1);
+
+        Dev devAfonso = new Dev();
+        devAfonso.setName("Afonso");
+        devAfonso.subscribeToBootcamp(bootcamp);
+        System.out.println("Subscribed contents "+devAfonso.getName()+" "+devAfonso.getSubscribedContents());
+        System.out.println("Completed contents "+devAfonso.getCompletedContents());
+
+        System.out.println("------------------------- ");
+        Dev devJoao = new Dev();
+        devJoao.setName("Joao");
+        devJoao.subscribeToBootcamp(bootcamp);
+        System.out.println("Subscribed contents " +devJoao.getName()+" "+devJoao.getSubscribedContents());
+        System.out.println("Completed contents: "+devJoao.getCompletedContents());
+
+        System.out.println("------------------------- ");
+
+        System.out.println("Progress");
+        devJoao.progress();
+        System.out.println("Subscribed contents " +devJoao.getName()+" "+devJoao.getSubscribedContents());
+        System.out.println("Completed contents: "+devJoao.getCompletedContents());
+
+        System.out.println("------------------------- ");
+        devJoao.progress();
+        devJoao.progress();
+        //test sys err
+        //devJoao.progress();
+        System.out.println("Subscribed contents " +devJoao.getName()+" "+devJoao.getSubscribedContents());
+        System.out.println("Completed contents: "+devJoao.getCompletedContents());
+
+
+
+
     }
 }
